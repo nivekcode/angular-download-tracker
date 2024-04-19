@@ -1,0 +1,11 @@
+<script lang="ts">
+  import {RouterModule} from "@angular/router";
+
+  defineMetadata({
+    imports: [RouterModule]
+  })
+</script>
+
+<template>
+  <router-outlet/>
+</template>

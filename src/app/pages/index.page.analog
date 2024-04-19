@@ -1,0 +1,31 @@
+<script lang="ts">
+  import {toSignal} from "@angular/core/rxjs-interop";
+  import {computed, inject, signal} from "@angular/core";
+
+  import {DownloadsService} from "../core/downloads.service";
+
+  import MostDownloaded from "./components/most-downloaded.component.analog" with { analog: 'imports'};
+  import DownloadItem from "./components/download-item.component.analog" with { analog: 'imports'};
+
+  const downloadsService = inject(DownloadsService);
+
+  const stats = toSignal(downloadsService.getStats());
+  const mostDownloadedVersion = computed(() => this.stats()[0]);
+  const mostDownloadedVersionsFromSecondToNine = computed(() => this.stats().slice(1, 9));
+
+</script>
+
+<template>
+  <main>
+    <section class="primary-section">
+      <h1>Most downloaded Angular version</h1>
+      <MostDownloaded [item]="mostDownloadedVersion()"/>
+    </section>
+
+    <section class="secondary-section">
+      @for(downloadItem of mostDownloadedVersionsFromSecondToNine(); track $index){
+        <DownloadItem [item]="downloadItem"/>
+      }
+    </section>
+  </main>
+</template>

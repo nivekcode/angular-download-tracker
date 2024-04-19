@@ -1,0 +1,44 @@
+<script lang="ts">
+  import {input} from "@angular/core";
+  import {DecimalPipe} from "@angular/common";
+
+  import {DownloadItem} from "../../shared/download-item";
+
+  defineMetadata({
+    imports: [DecimalPipe]
+  })
+
+  const item = input.required<DownloadItem>();
+
+</script>
+<template>
+
+  <div class="download-item">
+    <img [src]="item().logo">
+    <span>{{item().version}}</span>
+    <span>{{item().downloads | number}}</span>
+  </div>
+
+</template>
+
+
+<style>
+
+  .download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding: 10px 20px;
+
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+</style>
