@@ -6,6 +6,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { renderApplication } from '@angular/platform-server';
 
 import { config } from './app/app.config.server';
+// @ts-ignore
 import App from './app/app.component.analog';
 
 if (import.meta.env.PROD) {
