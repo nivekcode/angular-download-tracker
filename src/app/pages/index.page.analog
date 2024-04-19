@@ -20,7 +20,8 @@
   <main>
     <div class="versions-container">
       <section class="primary-section">
-        <h1>Most downloaded (last 7 days)</h1>
+        <h1>Most downloaded</h1>
+        <h2>(last 7 days)</h2>
         <MostDownloaded [item]="mostDownloadedVersion()"/>
       </section>
 

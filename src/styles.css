@@ -36,6 +36,13 @@ h1 {
   font-size: 30px;
 }
 
+h2 {
+  margin: 0;
+  font-family: "Space Mono", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
+
 .layer {
   z-index: 1;
   background: white;
@@ -52,7 +59,7 @@ main {
   flex-direction: column;
   position: relative;
 
-  margin: 100px auto;
+  margin: 50px auto;
 
   width: 100%;
 
@@ -108,6 +115,11 @@ footer {
 
   .versions-container {
     flex-direction: column;
+  }
+
+  .primary-section {
+    display: flex;
+    align-items: center;
   }
 
   .secondary-section {
