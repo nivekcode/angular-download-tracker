@@ -6,15 +6,14 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { renderApplication } from '@angular/platform-server';
 
 import { config } from './app/app.config.server';
-// @ts-ignore
-import App from './app/app.component.analog';
+import {AppComponent} from './app/app.component';
 
 if (import.meta.env.PROD) {
   enableProdMode();
 }
 
 export function bootstrap() {
-  return bootstrapApplication(App, config);
+  return bootstrapApplication(AppComponent, config);
 }
 
 export default async function render(url: string, document: string) {
