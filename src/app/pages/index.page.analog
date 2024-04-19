@@ -4,8 +4,8 @@
 
   import {DownloadsService} from "../core/downloads.service";
 
-  import MostDownloaded from "./components/most-downloaded.component.analog" with { analog: 'imports'};
-  import DownloadItem from "./components/download-item.component.analog" with { analog: 'imports'};
+  import MostDownloaded from "./components/most-downloaded.component.analog" with {analog: 'imports'};
+  import DownloadItem from "./components/download-item.component.analog" with {analog: 'imports'};
 
   const downloadsService = inject(DownloadsService);
 
@@ -16,16 +16,24 @@
 </script>
 
 <template>
+  <div class="layer"></div>
   <main>
-    <section class="primary-section">
-      <h1>Most downloaded Angular version</h1>
-      <MostDownloaded [item]="mostDownloadedVersion()"/>
-    </section>
+    <div class="versions-container">
+      <section class="primary-section">
+        <h1>Most downloaded (last 7 days)</h1>
+        <MostDownloaded [item]="mostDownloadedVersion()"/>
+      </section>
 
-    <section class="secondary-section">
-      @for(downloadItem of mostDownloadedVersionsFromSecondToNine(); track $index){
-        <DownloadItem [item]="downloadItem"/>
-      }
-    </section>
+      <section class="secondary-section">
+        @for (downloadItem of mostDownloadedVersionsFromSecondToNine(); track $index) {
+          <DownloadItem [index]="$index + 2" [item]="downloadItem"/>
+        }
+      </section>
+    </div>
+    <footer>
+      <span>
+      Made with ❤️ by <a href="https://twitter.com/kreuzercode" style="color: white;">Nivek</a>
+        </span>
+    </footer>
   </main>
 </template>

@@ -13,7 +13,7 @@
 
 <template>
   <div>
-    <p>Version: {{ item().version }}</p>
+    <p>Version: <span class="version">{{ item().version }}</span> </p>
     <img alt="most downloaded Angular version" [src]="item().logo"/>
     <p>Downloads: {{ item().downloads | number }}</p>
   <div>
@@ -36,6 +36,16 @@
 
   img {
     max-height: 40vh;
+    background:linear-gradient(135deg,rgba(0,0,0,.5),rgba(0,0,0,0.2)) repeat;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    border-radius: 100%;
+    padding: 20px;
   }
 
+  .version {
+    padding: 5px 20px;
+    border-radius: 20px;
+    background: #e17e7e;
+  }
 </style>

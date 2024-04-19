@@ -13,30 +13,44 @@ body {
   height: 100%;
   margin: 0;
   overflow-x: hidden;
-
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: 400;
   font-style: normal;
+  color: white;
 }
 
 body {
   font-family: "Nunito", sans-serif;
-  background-image: url(assets/bg.jpg);
+  background-image: url("assets/bg.png");
+  background-blend-mode: multiply;
   min-height: 100%;
-  background-repeat: no-repeat;
   background-size: cover;
+  padding: 25px;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-family: "Staatliches", monospace;
+  font-family: "Space Mono", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 30px;
 }
 
-/* MAIN MENU */
+.layer {
+  z-index: 1;
+  background: white;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 main {
   display: flex;
+  flex-direction: column;
+  position: relative;
 
   margin: 100px auto;
 
@@ -44,11 +58,12 @@ main {
 
   max-width: 1200px;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid white;
   border-radius: 15px;
   box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset,
+
   0 1px 0 0 rgba(255, 255, 255, 0.6) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
   z-index: 10;
 }
@@ -64,7 +79,38 @@ main {
 .secondary-section {
   width: 300px;
   justify-self: flex-end;
-  border-left: 1px solid white;
 
+  box-shadow: 0px -8px 20px rgba(0, 0, 0, 0.3);
 }
 
+.versions-container {
+  display: flex;
+}
+
+footer {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+
+  box-shadow: 0px -8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(
+    30px
+  );
+}
+
+@media (max-width: 1300px) {
+  main {
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .versions-container {
+    flex-direction: column;
+  }
+
+  .secondary-section {
+    width: 100%;
+  }
+}

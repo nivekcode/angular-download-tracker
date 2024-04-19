@@ -9,13 +9,15 @@
   })
 
   const item = input.required<DownloadItem>();
+  const index = input.required<number>();
 
 </script>
 <template>
 
   <div class="download-item">
     <img [src]="item().logo">
-    <span>{{item().version}}</span>
+    <span>{{index()}}.</span>
+    <span class="version">{{item().version}}</span>
     <span>{{item().downloads | number}}</span>
   </div>
 
@@ -24,11 +26,17 @@
 
 <style>
 
+  :host:last-child {
+    .download-item {
+      border-bottom: none;
+    }
+  }
+
   .download-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.5);
     padding: 10px 20px;
 
     font-family: "Nanum Gothic Coding", monospace;
@@ -37,8 +45,21 @@
     font-size: 20px;
   }
 
+
   img {
+    border-radius: 100%;
+    padding: 5px;
+    background: white;
+    background:linear-gradient(135deg,rgba(0,0,0,.5),rgba(0,0,0,0.2)) repeat;
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
     width: 50px;
     height: 50px;
+  }
+
+  .version {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e17e7e;
   }
 </style>
